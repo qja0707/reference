@@ -1,0 +1,47 @@
+<ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        <!-- off 상태의 이미지 지정 --> 
+        android:background="@drawable/angry_birds_red_button_by_vyndo_d3hc3t4"
+        />
+Colored by Color Scripter
+
+
+출처: http://bitsoul.tistory.com/37 [Happy Programmer~]
+
+
+public class MainActivity extends ActionBarActivity {
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        final ToggleButton tb2 = 
+                (ToggleButton) this.findViewById(R.id.toggleButton2);
+        
+        tb2.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if(tb2.isChecked()){
+                    tb2.setBackgroundDrawable(
+                            getResources().
+                            getDrawable(R.drawable.angry_birds_yellow_button_by_vyndo_d3hc3yl)
+                            );
+                }else{
+                    tb2.setBackgroundDrawable(
+                            getResources().
+                            getDrawable(R.drawable.angry_birds_red_button_by_vyndo_d3hc3t4)
+                            );                    
+                } // end if
+            } // end onClick()
+        }); 
+                
+    } // end onCreate()
+} // end Main()
+
+
+출처: http://bitsoul.tistory.com/37 [Happy Programmer~]
