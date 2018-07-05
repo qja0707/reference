@@ -1,47 +1,48 @@
 <ToggleButton
-        android:id="@+id/toggleButton2"
-        android:layout_width="100dp"
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_down"
+        android:checked="false"
+        android:onClick="toolbarHandler"
         android:text="ToggleButton"
-        <!-- off 상태의 이미지 지정 --> 
-        android:background="@drawable/angry_birds_red_button_by_vyndo_d3hc3t4"
-        />
-Colored by Color Scripter
+        android:textOff=""
+        android:textOn=""
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ToggleButton
+        android:id="@+id/esc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@android:color/transparent"
+        android:checked="false"
+        android:onClick="toolbarHandler"
+        android:text="ToggleButton"
+        android:textColor="@color/lightGrey"
+        android:textOff="ESC"
+        android:textOn="ESC"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+        tools:layout_editor_absoluteX="5dp" />
 
 
-출처: http://bitsoul.tistory.com/37 [Happy Programmer~]
-
-
-public class MainActivity extends ActionBarActivity {
- 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        final ToggleButton tb2 = 
-                (ToggleButton) this.findViewById(R.id.toggleButton2);
-        
-        tb2.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                if(tb2.isChecked()){
-                    tb2.setBackgroundDrawable(
-                            getResources().
-                            getDrawable(R.drawable.angry_birds_yellow_button_by_vyndo_d3hc3yl)
-                            );
-                }else{
-                    tb2.setBackgroundDrawable(
-                            getResources().
-                            getDrawable(R.drawable.angry_birds_red_button_by_vyndo_d3hc3t4)
-                            );                    
-                } // end if
-            } // end onClick()
-        }); 
-                
-    } // end onCreate()
-} // end Main()
-
-
-출처: http://bitsoul.tistory.com/37 [Happy Programmer~]
+public void toolbarHandler(View target){
+        if (target == t){
+            if(t.isChecked()){
+                t.setBackgroundResource(R.drawable.toolbar_down);
+            }else{
+                t.setBackgroundResource(R.drawable.toolbar_up);
+            }
+        }
+        else if(target == esc){
+            Log.d("asdf","asdf");
+            if(esc.isChecked()){
+                esc.setTextColor(getResources().getColor(R.color.lightBlue));
+            }
+            else{
+                esc.setTextColor(getResources().getColor(R.color.lightGrey));
+            }
+        }
+    }
