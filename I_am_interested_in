@@ -1,0 +1,14 @@
+code design pattern
+   how can I improve readability, reusability
+
+1. android button onClickListener pattern
+  <Button 
+     android:height="wrap_content"
+     android:width="wrap_content"
+     android:onClick="myClickHandler" />
+     
+  class MyActivity extends Activity {
+    public void myClickHandler(View target) {
+        // Do stuff
+    }
+  }
