@@ -1,0 +1,22 @@
+apt install nginx -> 바로 실행됨, 기본 포트 : 80
+
+nginx 설정파일 : /etc/nginx/sites-available/default 에서 php 부분 주석 해제
+  
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+	#
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+	
+		# With php7.0-cgi alone:
+	#	fastcgi_pass 127.0.0.1:9000;
+		# With php7.0-fpm:
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+	}
+
+
+
+
+설정파일 오류 여부 확인 : sudo nginx -t
+
+이상없으면 서버 재시작 : sudo systemctl reload nginx
+
