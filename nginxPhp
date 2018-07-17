@@ -20,3 +20,12 @@ nginx 설정파일 : /etc/nginx/sites-available/default 에서 php 부분 주석
 
 이상없으면 서버 재시작 : sudo systemctl reload nginx
 
+
+
+Mac OS -> /usr/local/etc/nginx
+	/usr/local/var/www/
+
+brew services start/stop nginx
+
+sudo 로 실행 시 80포트, 일반 계정은 1024 이하 포트 사용 불가 ->8080포트
+
