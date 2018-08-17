@@ -1,0 +1,8 @@
+1. make cocoa touch file
+2. connect 1's file and view controller
+3. make a button and make the button's action
+4. write below codes in the 3's action
+
+@IBAction func dismissVC(_ sender: Any) {
+     dismiss(animated: true, completion: nil)
+}
