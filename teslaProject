@@ -10,7 +10,22 @@ Ideas
 
 2019.03.01 : 
   Software 
+    1. 앱을 켜면 asleep 상태의 차를 바로 깨울지 혹은 기능을 사용할 때 깨울지 의논 필요함
+    
     1. After Blow 기능 필요함
+      function
+        기상 api로 차량 지역 비 오는지 안오는지 확인
+        if rain : vent
+        else : close
+        바깥 온도보다 내부 온도를 높게 설정
+        해당 온도로 몇분간 (default 5min) 송풍 후 stop
+        끝나고 창문 열려있으면 close
+        
+        option: 송풍 시간, vent or not
+        
+      data
+        차량 조회 : 위도 및 경도, 바깥 온도
+      
   Hardware
     1. 와이퍼
     2. 핸드폰 거치대
