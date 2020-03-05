@@ -17,7 +17,7 @@ Ideas
         기상 api로 차량 지역 비 오는지 안오는지 확인
         if rain : vent
         else : close
-        바깥 온도보다 내부 온도를 높게 설정
+        바깥 온도보다 내부 온도를 높게 설정 (기온이 맥스 온도보다 높다면???)
         해당 온도로 몇분간 (default 5min) 송풍 후 stop
         끝나고 창문 열려있으면 close
         
