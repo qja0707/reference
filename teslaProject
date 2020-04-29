@@ -12,6 +12,8 @@ Ideas
   Software 
     1. 앱을 켜면 asleep 상태의 차를 바로 깨울지 혹은 기능을 사용할 때 깨울지 의논 필요함
     2. NFC 를 이용하여 동승자에게 accessToken 전송 -> backSeat heater, door lock(unlock) 등등 차주대신 할 수 있거나 차주가 없어도 해야하는 기능들
+    3. 백그라운드 (혹은 포그라운드) 위치 트랙킹을 하여 지도에 뿌려주고 운전별 배터리 효율, 거리, 등등 정보 제공
+      1.저장되는 모든 정보는 휴대폰 변경을 위해 파일로 입.출력될 수 있어야 
     
     1. After Blow 기능 필요함
       function
