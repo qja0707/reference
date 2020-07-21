@@ -8,7 +8,7 @@ Ideas
   대부분의 api 가 차량까지 request 를 보낸 후 차량에서 response를 받아서 서버를 통해 클라이언트로 들어오는 것으로 보임
 
 
-2019.03.01 : 
+2020.03.01 : 
   Software 
     1. 앱을 켜면 asleep 상태의 차를 바로 깨울지 혹은 기능을 사용할 때 깨울지 의논 필요함
     2. NFC 를 이용하여 동승자에게 accessToken 전송 -> backSeat heater, door lock(unlock) 등등 차주대신 할 수 있거나 차주가 없어도 해야하는 기능들
@@ -28,6 +28,87 @@ Ideas
         
       data
         차량 조회 : 위도 및 경도, 바깥 온도
+        
+2020.07.21 :
+  자동차 주행 정보를 이용한 데이터 가공
+  aws lambda 를 이용한 serverless 시스템
+
+  시나리오
+    1.로그인 시 차량 아이디, 토큰을 http(혹은 rest) api 를 구현한 lambda 로 전송
+      1.람다에서는 db 에 해당 차량 아이디 검색 후 없으면 새로 생성, 있으면 토큰을 업데이트
+    2.크론텝을 돌려서 매 5분마다 람다는 db의 차량 아이디 테이블을 모두 쿼리하여 해당 아이디와 토큰으로 차량 tesla drive state 호출
+      1.받아온 정보를 차량 아이디별, 날짜별로 저장
+      
+  DB 설계
+    tesla drive state response
+    https://owner-api.teslamotors.com/api/1/vehicles/:id/vehicle_data
+    에서 필요한 데이터만을 db 에 저장해야 함
+    
+    "drive_state": {
+      "gps_as_of": 1558229088,
+      "heading": 163,
+      "latitude": 40.459698,
+      "longitude": -79.92347,
+      "native_latitude": 40.459698,
+      "native_location_supported": 1,
+      "native_longitude": -79.92347,
+      "native_type": "wgs",
+      "power": null,
+      "shift_state": null,
+      "speed": null,
+      "timestamp": 1558229319160
+    },
+    추가로
+    vehicle_state.odometer 필요
+    
+    아래 배터리 관련 정보에서 필요 / 불필요 정보 분석해야함
+    "charge_state": {
+      "battery_heater_on": false,
+      "battery_level": 74,
+      "battery_range": 186.57,
+      "charge_current_request": 48,
+      "charge_current_request_max": 48,
+      "charge_enable_request": true,
+      "charge_energy_added": 29.64,
+      "charge_limit_soc": 90,
+      "charge_limit_soc_max": 100,
+      "charge_limit_soc_min": 50,
+      "charge_limit_soc_std": 90,
+      "charge_miles_added_ideal": 117.0,
+      "charge_miles_added_rated": 91.5,
+      "charge_port_cold_weather_mode": null,
+      "charge_port_door_open": false,
+      "charge_port_latch": "Engaged",
+      "charge_rate": 0.0,
+      "charge_to_max_range": false,
+      "charger_actual_current": 0,
+      "charger_phases": null,
+      "charger_pilot_current": 48,
+      "charger_power": 0,
+      "charger_voltage": 0,
+      "charging_state": "Disconnected",
+      "conn_charge_cable": "<invalid>",
+      "est_battery_range": 146.18,
+      "fast_charger_brand": "<invalid>",
+      "fast_charger_present": false,
+      "fast_charger_type": "<invalid>",
+      "ideal_battery_range": 238.93,
+      "managed_charging_active": false,
+      "managed_charging_start_time": null,
+      "managed_charging_user_canceled": false,
+      "max_range_charge_counter": 0,
+      "not_enough_power_to_heat": false,
+      "scheduled_charging_pending": false,
+      "scheduled_charging_start_time": null,
+      "time_to_full_charge": 0.0,
+      "timestamp": 1558229319159,
+      "trip_charging": false,
+      "usable_battery_level": 74,
+      "user_charge_enable_request": null
+    },
+  
+        
+
       
   Hardware
     1. 와이퍼
