@@ -1,0 +1,2 @@
+EC2 접속 방법
+* ssh -i <Your.pem> ec2-user@<YourServerIP>
