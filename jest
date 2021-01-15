@@ -1,0 +1,25 @@
+Jest in React Project using Typescript & Javascript both
+
+1. install packages
+* jest & for react project (javascript)
+    * npm i -D jest @babel/core @babel/preset-env
+* for typescript also
+    * npm i -D @babel/preset-typescript @types/jest ts-jest
+
+2. package.json // add below
+
+"jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "babel-jest"
+    }
+  },
+
+3. make babel.config.js (same depth with package.json)
+    1. add below
+
+module.exports = {
+  presets: ["@babel/preset-typescript", "@babel/preset-env"],
+};
+
+
